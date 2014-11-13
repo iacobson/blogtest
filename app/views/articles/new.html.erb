@@ -1,0 +1,5 @@
+<h1>New Article</h1>
+
+<%= render 'articles/form' %>  <!-- to avoid repetition in new and edit views, the common html is put in app/views/articles/_form.html.erb . This is called : Using partials to clean up duplication in views -->
+
+<%= link_to 'Back' , articles_path %>  	<!-- returns to articles index -->

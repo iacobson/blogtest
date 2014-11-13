@@ -1,0 +1,30 @@
+<!--ATTENTION !!!! this is the Render Partial for New and Edit views -->
+
+<%= form_for @article  do |f| %>		<!--form_for is the basic form builder in ruby -->
+
+<% if @article.errors.any? %>		<!-- check if there are any errors with @article.errors.any? -->
+  <div id="error_explanation">
+    <h3 style= "color: red"><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h3>
+    		<!-- pluralize is a rails helper that takes a number and a string as its arguments. If the number is greater than one, the string will be automatically pluralized. -->
+    <ul style= "color: red">
+    <% @article.errors.full_messages.each do |msg| %>	<!-- show a list of all errors -->
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
